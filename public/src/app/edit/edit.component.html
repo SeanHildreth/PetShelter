@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="jumbotron bg-dark border border-primary text-light text-center py-1 my-3">
+    <h4>Know of a pet needing a home?</h4>
+    <a class="nav-link" href="">Home</a>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <form class="form-group" (ngSubmit)="editPet()">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Name:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="name" [(ngModel)]="pet.name">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Type:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="type" [(ngModel)]="pet.type">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Description:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="description" [(ngModel)]="pet.description">
+        </div>
+        <h4>Skills (optional):</h4>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Skill 1:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="skill1" [(ngModel)]="pet.skill1">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Skill 2:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="skill2" [(ngModel)]="pet.skill2">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Skill 3:</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="skill3" [(ngModel)]="pet.skill3">
+        </div>
+        <ul class="nav nav-pills nav-fill">
+          <li class="nav-item">
+            <input type="submit" class="btn btn-primary active mx-3 mb-2" style="width: 100%; max-width: 100px" value="Edit Pet">
+          </li>
+          <li class="nav-item">
+            <a href="/pets/{{ pet._id }}" class="btn btn-warning active mr-3" role="button" aria-pressed="true" style="width: 100%; max-width: 100px">Cancel</a>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="col-4">
+      <div *ngIf="errors">
+        <p *ngIf="errors.name" class="text-danger m-3">{{ errors.name.message }}</p>
+      </div>
+      <div *ngIf="errors">
+        <p *ngIf="errors.type" class="text-danger m-3">{{ errors.type.message }}</p>
+      </div>
+      <div *ngIf="errors">
+        <p *ngIf="errors.description" class="text-danger m-3">{{ errors.description.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>

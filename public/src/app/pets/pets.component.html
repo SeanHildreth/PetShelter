@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="jumbotron bg-dark border border-primary text-light text-center py-1 my-3">
+    <h4>These pets are looking for a home!</h4>
+    <a class="nav-link" href="/pets/new">Add a pet to the shelter</a>
+  </div>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pet of pets">
+        <th scope="row">{{ pet.name }}</th>
+        <td>{{ pet.type }}</td>
+        <td>
+          <a [routerLink]="['' + pet._id]" class="btn btn-primary active mx-3" role="button" aria-pressed="true" style="width: 100%; max-width: 100px">Details</a>
+          <a [routerLink]="[pet._id + '/edit']" class="btn btn-success active mx-3" role="button" aria-pressed="true" style="width: 100%; max-width: 100px">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
